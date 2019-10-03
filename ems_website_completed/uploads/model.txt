@@ -1,0 +1,532 @@
+mitsubishi- canter, miniCab, Fuso boom, Delica, Tripper, Buddy lorry
+nisan- Atlas, Vanette, Clipper, Mini Fresszer, Liteace
+tata- Dimo Batta, Xenon, Super Ace, Lokka
+layland- cargo, Taurus, tripper, comet lorry, full body
+mazda- Brawny, Bongo, Titan, Tripper, Lion Face
+issu-NHR, NPR, NKR, ELF, FORWARD
+jac-single cab, full body, palal Muna, HFC, Motor Lorry
+faw-full body, NKR, double wheel, Econace, True cab
+
+**********************************
+<script>
+function add(){
+
+    var a = document.getElementById("s1").selectedIndex;
+    var b = document.getElementById("s2").selectedIndex;
+    var c = document.getElementById("s3").selectedIndex;
+    var d = document.getElementById("s4").selectedIndex;
+    var e = document.getElementById("s5").selectedIndex;
+
+    var mysql = require('mysql');
+
+    var con = mysql.createConnection({
+      host: "localhost",
+      user: "localhost",
+      password: "",
+      database: "rentnow"
+    });
+
+    con.connect(function(err) {
+      if (err) throw err;
+      console.log("Connected!");
+
+      var sql = "INSERT INTO vehicles (category,brand,model,fuel,ac) VALUES (document.getElementsByTagName("option")[a].value,document.getElementsByTagName("option")[b].value,document.getElementsByTagName("option")[c].value,document.getElementsByTagName("option")[d].value,document.getElementsByTagName("option")[e].value)";
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("1 record inserted");
+      });
+    });
+    
+
+        
+}
+
+
+
+</script>
+////////////////
+<			tr>
+                            <td>
+                                <div class="cancle">
+                                    <p>Insert Image</p>
+                                </div>&nbsp;
+                            </td>
+                            <td>
+                                <div class="next">
+                                    <form  method="post" enctype="multipart/form-data">
+                                        <input type="file" name="files[]" multiple ><br>
+                                        <button type="submit" name="submit" value="UPLOAD"   >Upload</button>
+                                    </form>
+                                </div>&nbsp;
+                            </td>
+                        </tr>
+
+//////////////////////
+<?php
+session_start();
+if (!isset($_SESSION['userID'])) {
+    header("Location: index.php");
+}
+?>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>RentNow</title>
+    <script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5Jrp9PtHe0WapppUzxbIpMDWMAcV3qE4"></script>
+  <script src="https://unpkg.com/location-picker/dist/location-picker.min.js"></script>
+  <style type="text/css">
+    #map {
+      width: 750px;
+      height: 480px;
+      
+    }
+      #addvehicle{
+          margin-left: 100px;
+      }
+      #butn{
+          margin-right: 500px;
+      }
+  </style>
+</head>
+<!-- <link rel="stylesheet" type="text/css" href="AddVehicle-css-T.css"> -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.4/css/mdb.min.css" rel="stylesheet">
+
+
+<body>
+    <?php require "header.php" ?>
+    
+    <form method="post">
+        <div align="center">
+            <h1>Add Vehicle</h1>
+            <p>Please fill in this form to insert a vehicle.</p>
+            <hr>
+            <div id="addvehicle" >
+                <table width="30%" border="0" align="left" >
+                    <tbody>
+                        <tr>
+                            <td><label for="Select1">Select category</label><br>&nbsp;</td>
+                            <td>
+                                <div class="s1">
+                                    <div class="form-group">
+                                        <select class="form-control" name="select1" id="s1" onchange="func1()">
+                                            <option selected>Choose...</option>
+                                            <option value="Car">Car</option>
+                                            <option value="Van">Van</option>
+                                            <option value="Three wheel">Three wheel</option>
+                                            <option value="Light Motor Lorry">Light Motor Lorry</option>
+                                            <option value="Heavy Motor Lorry">Heavy Motor Lorry</option>
+                                            <option value="Hand Tractors">Hand Tractors</option>
+                                        </select>
+                                    </div>
+                                </div>&nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="Select2">Select brand</label><br>&nbsp;</td>
+                            <td>
+                                <div class="s2">
+                                    <div class="form-group">
+                                        <select class="form-control" name="select2" id="s2" onchange="func2()">
+                                            <option selected>Choose...</option>
+                                        </select>
+                                    </div>
+                                </div>&nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="Select3">Select models</label><br>&nbsp;</td>
+                            <td>
+                                <div class="s3">
+                                    <div class="form-group">
+                                        <select class="form-control" name="select3" id="s3" onchange="func3()">
+                                            <option selected>Choose...</option>
+                                        </select>
+                                    </div>
+                                </div>&nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="Select4">Select fuel</label><br>&nbsp;</td>
+                            <td>
+                                <div class="s4">
+                                    <div class="form-group">
+                                        <select class="form-control" name="select4">
+                                            <option selected>Choose...</option>
+                                            <option value="Petrol">Petrol</option>
+                                            <option value="Deisel">Deisel</option>
+                                            <option value="Electric">Electric</option>
+                                        </select>
+                                    </div>
+                                </div>&nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="Select5">Select AC/Non AC</label><br>&nbsp;</td>
+                            <td>
+                                <div class="s5">
+                                    <div class="form-group">
+                                        <select class="form-control" name="select5">
+                                            <option selected>Choose...</option>
+                                            <option value="AC">AC</option>
+                                            <option value="Non AC">Non AC</option>
+                                        </select>
+                                    </div>
+                                </div>&nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="SelectI1">Insert Image </label><br>&nbsp;</td>
+                            <td>
+                                <div class="form-group">
+                                    
+
+                                </div>
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="map" ></div>
+                <br>
+                <form  method="post" enctype="multipart/form-data">
+
+                                        <input type="file" name="files[]" multiple >
+
+                                    </form>
+                <script>
+                    var lat0;
+                    var lng0;
+                if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function(position) {
+                            lat0=position.coords.latitude;
+                            lng0=position.coords.longitude;                             
+                    });
+                    } else {
+                        alert("Geolocation is not supported by this browser.");
+                    }
+                    
+                </script>
+
+                <script>
+                  // Get element references
+                  var confirmBtn = document.getElementById('submit');
+                  var latID=1;
+                  var lngID=1;
+                  var map = document.getElementById('map');
+                  var lat1=lat0;
+                  var lng1=lng0;
+
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function(position) {
+                            lat1=position.coords.latitude;
+                            lng1=position.coords.longitude;                             
+                    });
+                    } else {
+                        alert("Geolocation is not supported by this browser.");
+                    }
+                  // Initialize LocationPicker plugin
+                  var lp = new locationPicker(map, {
+                    setCurrentPosition: true, // You can omit this, defaults to true
+                    lat: lat1,
+                    lng: lng1
+                  }, {
+                    zoom: 10, // You can set any google map options here, zoom defaults to 15
+                  });
+
+
+                 google.maps.event.addListener(lp.map, 'idle', function (event) {
+                     var location = lp.getMarkerPosition();
+                     latID=location.lat;
+                     lngID=location.lng;
+                 });
+ 
+
+                </script>     
+                
+            </div>
+            
+            <script src="js/addvehicle.js"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        </div>
+        <div align=center id="butn">
+                <table align="center">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="cancle">
+                                    <button type="button" class="cancelbtn btn btn-danger" id="cancel">Cancel</button>
+                                </div>&nbsp;
+                            </td>
+                            <td>
+                                <div class="next">
+                                    <button type="submit" name="submit" value="UPLOAD"  class="nextbtn btn btn-primary" >Next</button>
+                                </div>&nbsp;
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+        <script>
+        
+        class Vehicle {
+          constructor(detail) {
+            this.brand = detail[0];
+            this.models = detail[1];
+          }   
+         get getBrand(){
+             return this.brand;
+         } 
+         get getmodels(){
+             return this.models;
+         }
+        }
+
+        class Cars extends Vehicle {
+          constructor(brand, index_) {
+            super(brand,index_);   
+          }
+           get getBrand(){
+                 return this.brand;
+           }
+          get getmodels(){
+             return this.models;
+         }
+        }
+    
+        class Van extends Vehicle {
+          constructor(brand, index_) {
+            super(brand,index_);   
+          }
+           get getBrand(){
+                 return this.brand;
+           }
+            get getmodels(){
+             return this.models;
+         }
+        }
+    
+        class ThreeWheeel extends Vehicle {
+          constructor(brand, index_) {
+            super(brand,index_);   
+          }
+           get getBrand(){
+                 return this.brand;
+           }
+            get getmodels(){
+             return this.models;
+         }
+        }
+
+        class Light_Motor extends Vehicle {
+          constructor(brand, index_) {
+            super(brand,index_);   
+          }
+           get getBrand(){
+                 return this.brand;
+           }
+            get getmodels(){
+             return this.models;
+         }
+        }
+
+        class Heavy_Motor extends Vehicle {
+          constructor(brand, index_) {
+            super(brand,index_);   
+          }
+           get getBrand(){
+                 return this.brand;
+           }
+            get getmodels(){
+             return this.models;
+         }
+        }
+    
+        class Hand_Tractors extends Vehicle {
+          constructor(brand, index_) {
+            super(brand,index_);   
+          }
+           get getBrand(){
+                 return this.brand;
+           }
+            get getmodels(){
+             return this.models;
+         }
+    }
+    
+    
+
+let car1 = new Cars(new Array("BMW", new Array("BMW X1","BMW Z4","BMW 7 Series")));
+
+                function func1(){    
+                    var s1=document.getElementById("s1");
+                    var s2=document.getElementById("s2");
+                    
+                    if(s1.selectedIndex==1){ 
+                        var option=document.createElement("option");
+                        s2.options.length = 0;
+                        s3.options[s3.options.length]=new Option('Choose','Choose');
+                        s2.options[s2.options.length]=new Option(car1.getBrand,car1.getBrand);
+                        s2.options[s2.options.length]=new Option('Mazda','Mazda');
+                        s2.options[s2.options.length]=new Option('Lamborghini','Lamborghini');
+                        s2.options[s2.options.length]=new Option('Toyota','Toyota');
+                        s2.options[s2.options.length]=new Option('Jaguar','Jaguar');
+                        
+                    }else if(s1.selectedIndex==2){ 
+                        var option=document.createElement("option");
+                        s2.options.length = 0;
+                        s3.options[s3.options.length]=new Option('Choose','Choose');
+                        s2.options[s2.options.length]=new Option('Mazda','Mazda');
+                        s2.options[s2.options.length]=new Option('Toyota','Toyota');
+                        
+                    }else if(s1.selectedIndex==3){ 
+                        var option=document.createElement("option");
+                        s2.options.length = 0;
+                        s3.options[s3.options.length]=new Option('Choose','Choose');
+                        s2.options[s2.options.length]=new Option('Bajaj','bajaj');
+                        
+                    }else if(s1.selectedIndex==4){ 
+                        var option=document.createElement("option");
+                        s2.options.length = 0;
+                        s3.options[s3.options.length]=new Option('Choose','Choose');
+                        s2.options[s2.options.length]=new Option('Tata','Tata');
+                        s2.options[s2.options.length]=new Option('Toyota','Toyota');
+                        s2.options[s2.options.length]=new Option('Demo','Dem0');
+                        
+                    }else if(s1.selectedIndex==5){ 
+                        var option=document.createElement("option");
+                        s2.options.length = 0;
+                        s3.options[s3.options.length]=new Option('Choose','Choose');
+                        s2.options[s2.options.length]=new Option('Mazda','Mazda');
+                        s2.options[s2.options.length]=new Option('Toyota','Toyota');
+                        s2.options[s2.options.length]=new Option('Demo','Dem0');
+                        
+                    }else if(s1.selectedIndex==6){ 
+                        var option=document.createElement("option");
+                        s2.options.length = 0;
+                        s2.options[s2.options.length]=new Option('Demo','Dem0');
+                        
+                    }
+                } 
+                
+                function func2(){    
+                    var s1=document.getElementById("s1");
+                    var s2=document.getElementById("s2");
+                    var s3=document.getElementById("s3");
+                    
+                    if(s1.selectedIndex==1){
+                        
+                        if(s2.selectedIndex==0){ 
+                            var option=document.createElement("option");
+                            s3.options.length = 0;
+                            s3.options[s3.options.length]=new Option('Choose','Choose');
+                            for(i=0;i<car1.getmodels.length;i++){
+                               s3.options[s3.options.length]=new Option(car1.getmodels[i],car1.getmodels[i]); 
+                            }
+                            
+          
+                        }else if(s2.selectedIndex==1){ 
+                            var option=document.createElement("option");
+                            s3.options.length = 0;
+                            s3.options[s3.options.length]=new Option('Choose','Choose');
+                             s3.options[s3.options.length]=new Option('Mazda car2','Mazda car2');
+                             s3.options[s3.options.length]=new Option('Mazda car2','Mazda car2');
+
+                        }else if(s2.selectedIndex==2){ 
+                            var option=document.createElement("option");
+                            s3.options.length = 0;
+                            s3.options[s3.options.length]=new Option('Choose','Choose');
+                            s3.options[s3.options.length]=new Option('Lambo car1 ','Lambo car1');
+
+                        }else if(s2.selectedIndex==3){ 
+                            var option=document.createElement("option");
+                            s3.options.length = 0;
+                            s3.options[s3.options.length]=new Option('Choose','Choose');
+                            s3.options[s3.options.length]=new Option('Toyota car1','Toyota car1');
+                            s3.options[s3.options.length]=new Option('Toyota car2','Toyota car2');
+
+                        }else if(s2.selectedIndex==4){ 
+                            var option=document.createElement("option");
+                            s3.options.length = 0;
+                            s3.options[s3.options.length]=new Option('Choose','Choose');
+                            s3.options[s3.options.length]=new Option('Jaguar car1','Jaguar car1');
+                            s3.options[s3.options.length]=new Option('Jaguar car2','Jaguar car2');
+                        }
+                        
+                        
+                    }else if(s2.selectedIndex==2){ 
+                        var option=document.createElement("option");
+                        s2.options.length = 0;
+                        s2.options[s2.options.length]=new Option('Choose','Choose');
+                        s2.options[s2.options.length]=new Option('Mazda','Mazda');
+                        s2.options[s2.options.length]=new Option('Toyota','Toyota');
+                        
+                    }else if(s1.selectedIndex==3){ 
+                        var option=document.createElement("option");
+                        s2.options.length = 0;
+                        s2.options[s2.options.length]=new Option('Choose','Choose');
+                        s2.options[s2.options.length]=new Option('Bajaj','bajaj');
+                        
+                    }else if(s1.selectedIndex==4){ 
+                        var option=document.createElement("option");
+                        s2.options.length = 0;
+                        s2.options[s2.options.length]=new Option('Choose','Choose');
+                        s2.options[s2.options.length]=new Option('Tata','Tata');
+                        s2.options[s2.options.length]=new Option('Toyota','Toyota');
+                        s2.options[s2.options.length]=new Option('Demo','Dem0');
+                        
+                    }else if(s1.selectedIndex==5){ 
+                        var option=document.createElement("option");
+                        s2.options.length = 0;
+                        s2.options[s2.options.length]=new Option('Choose','Choose');
+                        s2.options[s2.options.length]=new Option('Mazda','Mazda');
+                        s2.options[s2.options.length]=new Option('Toyota','Toyota');
+                        s2.options[s2.options.length]=new Option('Demo','Dem0');
+                        
+                    }else if(s1.selectedIndex==6){ 
+                        var option=document.createElement("option");
+                        s2.options.length = 0;
+                        s2.options[s2.options.length]=new Option('Choose','Choose');
+                        s2.options[s2.options.length]=new Option('Demo','Dem0');
+                        
+                    }
+                }
+                    
+                </script>
+        
+    </form>
+    
+</body>
+</html> 
+<?php
+    $hostname="localhost";
+    $db="rentnow";
+    $Username="root";
+    $Password="";
+    echo "submit begin";
+    $conn=new PDO("mysql:host=$hostname;dbname=$db",$Username,$Password);
+    if(isset($_POST['submit'])){
+        echo "submit begin1";
+        $category = $_POST['select1'];
+        $brand = $_POST['select2'];
+        $model = $_POST['select3'];
+        $fuel = $_POST['select4'];     
+        $ac = $_POST['select5'];
+    
+        $sql=$conn -> prepare("Insert Into vehicles (category,brand,model,fuel,ac) values (:category,:brand,:model,:fuel,:ac)");
+        $conn->beginTransaction();
+        $sql->execute(array(':category'=>$category,':brand'=>$brand,':model'=>$model,':fuel'=>$fuel,':ac'=>$ac));
+        $conn->commit();
+    }
+        
+    $conn=null;
+?>
