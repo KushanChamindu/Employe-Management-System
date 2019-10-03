@@ -1,0 +1,101 @@
+.title{
+	font-weight: bold;
+	color: rgb(3, 177, 180);
+}
+
+.table-detail{
+    padding-left: 370px;
+}
+
+tr{
+    height: 30px;
+}
+td.clock{
+    display: flex !important; 
+}
+
+input.form-control{
+    width: 100px !important;
+    height: 25px;
+}
+
+.date{
+    height: 25px;;
+}
+
+.opacity {
+	opacity: 0;
+    width: 0;		/* for internet explorer */   
+}
+
+input[type=radio]+label {
+    font-weight: normal;
+    color: black;
+}
+input[type=radio]:checked+label {
+    color: rgb(19, 200, 224);
+
+}
+
+div.select{
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    width: 600px;
+    height: 45px;
+}
+
+.table-below{
+    margin-top:8px !important;
+}
+
+.last-raw{
+    margin-top: 30px;
+}
+
+.btn-circle, .btn-circle-3d{
+    border-radius: 50% !important;
+  }
+
+  .btn-primary.btn-circle{
+    -webkit-box-shadow: 0px 0px 3px 1px #245580;
+    -moz-box-shadow:    0px 0px 3px 1px #245580;
+    box-shadow:         0px 0px 3px 1px #245580;
+  }
+
+
+div.btn{
+    margin-left: 29%;
+    margin-top: 20px;
+}
+
+div.btn-view{
+    margin-left: 26%;
+    margin-top: 20px;
+}
+
+div.footer-bar{
+	position: absolute;
+    top: 780px;
+    left: 42%;
+}
+
+.btn-circle-a {
+    display: block;
+    width: 90px;
+    height: 45px;
+
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+.form-check-label:hover{
+	color: rgb(9, 135, 185);
+}
+.current-R{
+    border-style: solid;
+  border-color: rgba(223, 17, 34, 0.623);
+}

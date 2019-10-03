@@ -1,0 +1,16 @@
+.tabcontain,.edit_tabs{
+    padding-left: 370px;
+}
+
+td{
+    height: 30px;
+}
+
+
+.footer{
+    top:86%;
+	left:44%;
+	position: absolute;
+	z-index: 1;
+
+}

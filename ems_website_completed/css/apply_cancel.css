@@ -1,0 +1,50 @@
+.view-content{
+    position: absolute;
+    padding-left: 350px;
+}
+
+.tabel-content{
+    padding-left: 20px;
+    padding-top: 30px;
+}
+
+
+
+th{
+    text-align: center !important;
+}
+
+td{
+    width: 150px;
+    height: 30px !important;
+}
+
+
+ul{
+	list-style: none;
+}
+
+ 
+.clickable:hover { 
+    background: rgb(185, 185, 185);
+    cursor:pointer; 
+} 
+
+.msg{
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.w3-modal-content{
+    width: 230px !important;
+}
+
+
+.footer{
+	margin-top: 40px;
+	margin-bottom: 20px;
+	left:35%;
+	position: relative;
+	z-index: 1;
+
+}

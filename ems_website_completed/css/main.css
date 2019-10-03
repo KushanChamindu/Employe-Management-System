@@ -1,0 +1,94 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin: 0; padding: 0;}
+a{text-decoration: none;}
+.clearfix{overflow: auto}
+.wrapper{
+	width: "100%";
+}
+
+.title{
+	font-weight: bold;
+	color: rgb(3, 177, 180);
+}
+
+
+header{
+	background-image:url("../img/background-index.jpg");
+	height: 150px;
+}
+
+div.introduction{
+
+	margin-left: 350px;
+	font-size: 16.5px;
+}
+
+nav ul li a:hover,nav ul li a:focus {
+	text-decoration: none;
+}
+
+nav{
+	text-align: center;
+	margin-top: 15px; 
+	margin-left: 110px;
+}
+nav ul{
+	list-style: none;
+}
+nav ul li{
+	display: inline;
+}
+nav ul li a{
+	color: rgb(0, 0, 0);
+	text-transform: uppercase;
+	margin-top: 10px; margin-bottom: 10px;
+	margin-left: 50px; margin-right: 50px;
+	display: inline-block;
+	font-weight: bolder;
+	font-size: 17px;
+
+}
+nav ul li a:hover{
+	color: rgb(9, 135, 185);
+}
+
+aside { 
+	float: left; 
+	width: 300px;  
+	height: 500px;
+} 
+
+div.content{
+	margin-left: 70px;
+	margin-top: 115px;
+}
+navbar-header{
+    margin-right: 0;
+}
+.w3-circle {
+	 position: absolute; top: 50px; left: 70px;
+}
+div.name{
+	font-weight: 500;
+	font-size: 270%;
+	padding-top: 45px;
+}
+div.position{
+	padding-top: -10px;
+	font-size: 180%;	
+}
+
+.current-link-nav {
+    color:rgb(9, 135, 185);
+}
+
+
+.footer{
+margin-top: 40px;
+margin-bottom: 20px;
+left: 25%;
+    position: relative;
+    z-index: 1;
+
+}

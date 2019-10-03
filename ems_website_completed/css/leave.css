@@ -1,0 +1,32 @@
+ul li a{
+	color: rgb(0, 0, 0);
+	margin-left: 410px; margin-right: 50px;
+    display: inline-block;
+    text-decoration: none;
+	font-weight: 700;
+	font-size: 18px;
+}
+
+li a:hover{
+	color: rgb(9, 135, 185);
+}
+
+ul li a:hover,ul li a:focus {
+	text-decoration: none;
+}
+
+ul{
+	list-style: none;
+}
+
+div.links{
+    margin-top: 120px;
+}
+
+.footer{
+    top:86% !important;
+    left: 44%;
+	position: absolute;
+	z-index: 1;
+
+}
