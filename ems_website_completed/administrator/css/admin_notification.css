@@ -1,0 +1,31 @@
+.notification{
+top: 70px;
+right: 10px;
+margin: 0;
+margin-right: 10px;
+position: absolute;
+width: 400px;
+height: 30px;
+flex-wrap: nowrap;
+box-sizing: border-box;
+}
+.notification  .navbar-header-custom nav ul li a{
+    margin: 3px;
+    
+}
+.notification  .navbar-header-custom nav ul li .dropdown-menu #{
+    margin: 3px;
+    
+}
+.container  .navbar-header nav ul .btn{
+}
+.dropdown-menu{
+    width: 400px;
+}
+.dropdown-menu li a h4{
+    padding: 5px;
+    font-family: arial sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    
+}

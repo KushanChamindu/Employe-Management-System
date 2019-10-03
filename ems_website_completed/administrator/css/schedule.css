@@ -1,0 +1,166 @@
+.success{
+    color: green;
+    font-size: 17px;
+}
+error-para{
+    font-size: 12px;
+    color: red;
+        }
+.error{
+    border:1px solid red;
+        }
+.title{
+	font-weight: bold;
+    color: rgb(3, 177, 180);
+    padding-bottom: 30px;
+}
+
+.table-detail{
+    padding-top: 50px;
+    padding-left: 100px;
+}
+
+.table-detail-view{
+    padding-top: 50px;
+    padding-left: 35%;
+}
+
+tr{
+    height: 30px;
+}
+td.clock{
+    display: flex !important; 
+}
+
+input.form-control{
+    width: 100px !important;
+    height: 25px;
+}
+
+.date{
+    height: 25px;;
+}
+
+div.select{
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    width: 600px;
+    height: 45px;
+}
+
+.table-below{
+    margin-top:8px !important;
+}
+
+.last-raw{
+    margin-top: 30px;
+}
+
+.btn-circle, .btn-circle-3d{
+    border-radius: 50% !important;
+  }
+
+  .btn-primary.btn-circle{
+    -webkit-box-shadow: 0px 0px 3px 1px #245580;
+    -moz-box-shadow:    0px 0px 3px 1px #245580;
+    box-shadow:         0px 0px 3px 1px #245580;
+  }
+
+
+div.btn-view{
+    margin-left: 20%;
+    margin-top: 20px;
+}
+
+div.footer-bar{
+	position: absolute;
+    top: 780px;
+    left: 42%;
+}
+
+.btn-circle-a {
+    display: block;
+    width: 90px;
+    height: 45px;
+
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+}
+.button_container{
+    margin-left: 1%;
+    float:left;
+    margin-right:1%;
+    }
+.button_container_Submit:after{
+    display: table;
+    }
+.button{
+    font-size:1.5rem;
+    border-color: #245580;
+    border-radius:45px;
+    width:100px;
+    background-color: #245580;
+    height:42px;
+    color: white;
+    font-weight: bold;
+    transition: .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+.button-a{
+   
+    border-color: #245580;
+    border-radius:45px;
+    width:100px;
+    background-color: #245580;
+
+    color: white;
+    font-weight: bold;
+    transition: .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+.button-a{
+    width: 100px;
+    padding: 12px;
+}
+
+.button-a:hover,.button-a:focus{
+    text-decoration: none;
+    color: white;
+}
+.icon{
+    position: relative;
+    top: 2.5%;
+    color: white;
+    transform: translateX(0%);
+    text-align:center;
+    font-size: 22px;
+    }
+.btn-default{
+    width: 150px;
+    display: inline-block !important;
+    margin-left: 5%;
+}
+
+.btn-view-view{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 16%;
+
+}
+.edit_tabs{
+    margin-left: -10%;
+}
+ .Label{
+        font-size:17px;
+        color: black; 
+        font-weight: bold; 
+        font-family:Times-New_Roamen;
+        width: 150px;
+}
+
+.btn-view-leave{
+    margin-top: 50px;
+    margin-left: 100px;
+}

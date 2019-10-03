@@ -1,0 +1,100 @@
+
+/****************
+inner css
+****************/
+body{
+    
+    background-color:  #e7e7e7   ;
+    background-size: cover;
+    height: 100%;
+    background-repeat: no-repeat;
+    -webkit-background-repeat: no-repeat;
+    
+}
+.form-area{
+    left: 50%;
+    position: fixed;
+    top:50%;
+    transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    width: 40%;
+    height: 600px;
+    box-sizing: border-box;
+    background: rgba(255,255,255,0.5);
+    padding: 40px;
+}
+.contact-title{
+    margin-top: 20px;
+    text-align: center;
+    color: #000000;
+    transition: all 4s ease-in-out;
+}
+
+.contact-title h1{
+    color: rgba(0,0,0,0.7);
+    padding-bottom: 30px;
+    font-size: 32px;
+    line-height: 10px;
+    font-weight: bold;
+}
+
+
+.contact-form{
+    text-align: justify;
+    margin-top: 30px;
+    margin-left: 9%;/*50/600*/
+    width: 80%;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+
+::placeholder{
+    opacity: 1;
+    color: rgba(60,60,60,0.7);
+}
+::-ms-input-placeholder{
+    color: rgba(60,60,60,0.7);
+}
+:-ms-input-placeholder{
+    color: rgba(60,60,60,0.7);
+}
+
+.form-control{
+    padding-left: 3.55%;/*10px*/
+    text-align:left;
+    color: rgba(0,0,0,0.8);
+    display: block;
+    margin: 0 auto;
+    height: 40px;
+    width: 96%;
+    outline: none;
+    background: rgba(255,255,255,0.6);
+    border-color: transparent;
+    -webkit-border-color:transparent;
+    font-size: 20px;
+    cursor: text;
+}
+
+.submit{
+    outline: none;
+    font-size: 20px;
+    display: block;
+    height: 40px;
+    width: 60%;
+    margin: 20px auto;
+    border-color:  #525151 ;
+    background-color:  #525151 ;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    font-weight: bold;
+    border-radius:45px;
+}
+
+.submit:hover{
+    border-color:#525151 ;
+    background-color: rgba(255,255,255,0.6);
+    color: #525151 ;
+}
